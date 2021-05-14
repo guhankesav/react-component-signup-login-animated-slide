@@ -1,111 +1,279 @@
 # react-component-signup-login-animated-slide
 
 
-A Breautiful component to display display profile pictures , with animation on hover
+A Breautiful component to display Login and signup page with sliding cards
 
 ## Demo  <br/>
-[See Demo](http://guhankesav.github.io/react-face-component-test)
+[See Demo](https://guhankesav.github.io/react-component-signup-login-animated-slide/)
 
 ## Code :
 
 
-### facecomponent.jsx
+### app.js
 ```jsx
-import React from 'react';
-import './face.css';
-import { useState } from 'react';
+import './App.css';
 
-import face1 from './../assets/images/face1.png';
+function App() {
+  function login(){
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+    var z = document.getElementById("btn");
 
-function compress(){ 
-    var x = document.getElementById("ltt_lecture_dp_id")
-    var cir = document.getElementById("ltt_lecture_dp_circle_id")
-    var sq = document.getElementById("ltt_lecture_dp_square_id")
-  
-    sq.style.marginLeft= "-108px"
-    sq.style.marginTop = "-219px"
-    sq.style.transition=" margin 1s"
-  
-    
-    cir.style.marginLeft="97px"
-    cir.style.marginTop = "-211px"
-    cir.style.transition="margin 1s"
-  
-  
-    x.style.borderTopLeftRadius="30px"
-    x.style.borderTopRightRadius="30px"
-    x.style.borderBottomLeftRadius="30px"
-    x.style.borderBottomRightRadius="30px"
 
+    x.style.left = "50px" ;
+    y.style.left = "450px" ;
+    z.style.left = "0px" ;
+    return 0;
   }
-  function decompress(){ 
-    var x = document.getElementById("ltt_lecture_dp_id")
-    var cir = document.getElementById("ltt_lecture_dp_circle_id")
-    var sq = document.getElementById("ltt_lecture_dp_square_id")
+  function register(){ 
+    var x = document.getElementById("login")
+    var y = document.getElementById("register")
+    var z = document.getElementById("btn")
 
-    sq.style.marginLeft="0px"
-    sq.style.marginTop = "-305px"
-    sq.style.transition="margin 2s"//top
-  
-    cir.style.marginLeft="0px"
-    cir.style.marginTop = "-0px"
-    cir.style.transition="margin 2s"
-  
-    x.style.borderTopRightRadius="70px"
-    x.style.borderBottomLeftRadius="70px"
+
+    x.style.left = "-400px" 
+    y.style.left = "50px" 
+    z.style.left = "110px" 
   }
-const  face=()=>{
- 
-    return (
-        <div >
-                <img id="ltt_lecture_dp_id" className="ltt_lecture_dp" src={face1} onMouseOver={() => compress()} onMouseOut = {() => decompress()}></img>
-                <div id= "ltt_lecture_dp_square_id"className="ltt_lecture_dp_square"></div>
-                <div id="ltt_lecture_dp_circle_id" className="ltt_lecture_dp_circle"></div>
-        </div>
-    )
+
+
+  return (
+    <body>
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+    <div className="App">
+      <div class="hero">
+      <div className="form-box">
+      <div className="button-box">
+            <div id="btn"></div>
+            <button type="button" className="toggle-btn" onClick={() => login()}>Sign In</button>
+            <button type="button" className="toggle-btn" onClick={() => register()}>  Sign Up</button>
+
+          </div>
+          <form id ="login" className="input-group">
+            <div className="inputwithIcon">
+              <input type="text" placeholder="Mail-Id"/>
+              <i  type="icon" class="fa fa-user-circle-o fa-lg fa-fw" aria-hidden="true"></i>
+
+            </div>
+            <div class="inputwithIcon">
+              <input type="text" placeholder="Password"/>
+              <i type="icon" className="inputwithiconii" class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
+            </div>
+            <input type="checkbox" className="check-box1"></input><span1>Forgot Password</span1>
+            <button type="submit" className="submit-btn">Login</button>
+
+          </form>
+          <form id="register" className="input-group">
+            <div class="inputwithIcon">
+              <input type="text" placeholder="Mail-Id"/>
+              <i class="fa fa-user-circle-o fa-lg fa-fw" aria-hidden="true"></i>
+            </div>
+            <div class="inputwithIcon">
+              <input type="text" placeholder="Password"/>
+              <i type="icon" class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
+          </div>
+            <div class="inputwithIcon">
+              <input type="text" placeholder="Re-Password"/>
+              <i type="icon" class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
+            </div>
+            <input type="checkbox" className="check-box"></input><span>I agree to terms and conditions*</span>
+            <button type="submit" className="submit-btn">Register</button>
+          </form>
+
+      </div>
+  </div>
+    </div>
+
+  
+    </body>
+  );
 }
-export default face;
+
+export default App;
+
 ```
 
 ### facecomponent.css
 ```css
 
-.ltt_lecture_dp_square{
-  z-index: -1;
-  position: relative;
-
-  width: 214px;
-  height: 214px;
-  left: 206px;
-  top: 0px;
-  margin-left: 0px;
-  margin-top: -305px;
-  transition: all 0.5s ease;
-  border: 6px solid rgba(0, 0, 0, 0.53);
-  box-sizing: border-box;
-  border-radius: 25px;
+*{
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
 }
-.ltt_lecture_dp{
-  width: 213px;
-  height: 217px;
-  top:105px;
-  left:99px;
-  margin-top: 105px;
-  margin-left: 99px;
-  border-radius: 30px 70px;
-  border: 0px ;
-  }
-.ltt_lecture_dp_circle{
 
-width: 214px;
-height: 207px;
-left: 0px;
-top: 219px;
-margin-top: -0px;
-border-radius: 50%;
-border: 6px solid rgba(0, 0, 0, 0.53);
-box-sizing: border-box;
-transition: all 0.5s ease;
+.hero{
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4),url(amrita1.png));
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+}
+
+.form-box{
+  width:380px;
+  height:480px;
+  position: relative;
+  margin: 6% auto;
+  /* background: rgb(244, 252, 135); */
+  padding: 5px;
+  overflow: hidden;
+  
+}
+.button-box{
+  width: 220px;
+  margin: 35px auto;
+  left:0px;
+  position: relative;
+  box-shadow: 0 0 10px 3px #494b51;
+  border-radius: 30px;
+}
+
+.toggle-btn{
+  padding: 10px 30px;
+  cursor:pointer;
+  background: transparent;
+  border:0;
+  outline: none;
+  position: relative;
+  font-weight: bold;
+  color: #ffe957;
+
+}
+
+#btn{
+  top:0;
+  left:0;
+  position: absolute;
+  width:110px;
+  height:100%;
+  background-color: #494b51;
+  border-radius: 30px;
+  transition: .5s;
+}
+.social-icons {
+  margin: 30px auto;
+  text-align: center;
+}
+.social-icons img{
+  height: 50px;
+  width: 50px;
+  margin: 30px auto;
+  text-align: 0 12px;
+  box-shadow: 0 0 20px 0 #7f7f7f3d;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.input-group{
+  top: 180px;
+  position: absolute;
+  width: 280px;
+  transition: .5s;
+}
+.input-field{
+  width: 100%;
+  padding: 10px 0;
+  margin: 5px 0;
+  border-left: 2px solid rgb(82, 82, 82);
+  border-top: 2px solid rgb(82, 82, 82);
+  border-right:2px solid rgb(82, 82, 82);
+  border-bottom: 2px solid rgb(82, 82, 82);
+  border-color: dimgray;
+  border-width: 3px;
+  background: transparent;
+  border-radius: 6px;
+  
+}
+.submit-btn{
+  width: 85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  top :5px;
+  background-color: #ffe957;
+  color:#494b51;
+  font-weight: bold;
+
+  border:0;
+  outline: none;
+  border-radius: 30px;
+}
+.check-box{
+  margin: 30px 10px 30p 0;
+  
+
+}
+.check-box1{
+  margin: 30px 10px 30p 0;
+  visibility: hidden;
+
+}
+span{
+  color:#777;
+  font-size: 12px;
+  bottom:38px;
+  left: 20px;
+  position: absolute;
+}
+span1{
+  text-emphasis-style: initial;
+  text-decoration: underline;
+  left: 180px;
+  top:10;
+  cursor: pointer;
+  color:rgb(77, 76, 76);
+  font-size: 11px;
+  bottom:40px;
+  /* bottom:68px; */
+  position: absolute;
+}
+
+#login{
+  left: 50px;
+}
+#register{
+  left: 450px;
+}
+
+input[type="text"] {
+  width: 100%;
+  border: 2px solid rgb(104, 103, 103);
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+
+
+}
+
+input[type="text"]:focus {
+  border-color: #f5a80eda;
+  box-shadow: 0 0 8px 0 #f5a80eda;
+}
+
+.inputwithIcon input[type="text"] {
+  padding-left: 40px;
+}
+
+.inputwithIcon {
+  position: relative;
+}
+
+.inputwithIcon i{
+  position: absolute;
+  left: 0;
+  top: 8px;
+  padding: 9px 8px;
+  color: rgb(104, 103, 103);
+  transition: 0.3s;
+}
+
+.inputwithIcon input[type="text"]:focus + i {
+  color: #f5a80eda;
 }
 ```
 ## To install gh-pages<br/>
